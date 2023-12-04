@@ -6,23 +6,34 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
 model Menus {
-  id Int @id @default(autoincrement())
+  id_menu Int @id @default(autoincrement())
   createdAt DateTime @default(now())
   name String @db.VarChar(200)
   price String @db.VarChar(200)
   originalPrice String @db.VarChar(200)
+  image String @db.VarChar(200)
 }
 
 model Customers {
-  id Int @id @default(autoincrement())
+  id_customer Int @id @default(autoincrement())
   createdAt DateTime @default(now())
   name String @db.VarChar(200)
   email String @db.VarChar(200)
   phone String @db.VarChar(100)
   message String @db.VarChar(200)
+}
+
+model bookings {
+  id_booking Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  name String @db.VarChar(200)
+  email String @db.VarChar(200)
+  tanggal String @db.VarChar(100)
+  waktu String @db.VarChar(100)
+  total_person String @db.VarChar(100)
 }
