@@ -1,12 +1,8 @@
-function getAllmenus(req, res) {
-  res.json({
-    menus: [
-      {
-        name: "Chokolate drink",
-        price: "15000",
-      },
-    ],
-  });
+const menusService = require("../services/menusService");
+
+async function getAllmenus(req, res) {
+  const menus = await menusService.getAllmenus();
+  res.json(menus);
 }
 
 module.exports = {
