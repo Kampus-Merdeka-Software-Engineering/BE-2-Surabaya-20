@@ -3,7 +3,7 @@ const customerService = require("../services/customersService");
 async function createCustomers(req, res) {
   const customers = req.body;
 
-  const createdCustomer = await customersService.createCustomers();
+  const createdCustomer = await customersService.createCustomers(customers);
   res.status(201).json(createdCustomer);
 }
 
